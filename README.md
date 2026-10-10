@@ -11,7 +11,10 @@ Centro interactivo de estudio y autoevaluación enfocado en el **Código del Tra
 2. **El Contrato Individual de Trabajo** (Las 6 cláusulas mínimas obligatorias según Art. 10).
 3. **Feriado Anual / Vacaciones** (Requisitos, 15 días hábiles, cómputo de sábados e impacto operativo).
 4. **Permisos Legales e Incapacidad Médica** (Permisos pagados comunes y fiscalización de Licencias Médicas - Ley N° 20.585 / SIL).
-5. **Quiz de Autoevaluación Integral** (4 preguntas interactivas con retroalimentación inmediata, puntuación y confeti).
+5. **Cuestionario de Autoevaluación Integral (15 Preguntas)**:
+   - Navegación rápida por números de pregunta (1 al 15) con indicadores de acierto/error en vivo.
+   - Retroalimentación pedagógica instantánea y detallada para cada opción.
+   - Contador de puntaje, barra de avance porcentual, efectos de sonido y lluvia de confeti al completar el 100%.
 
 ## 🚀 Cómo visualizarlo
 Abre directamente index.html en cualquier navegador web moderno (Chrome, Edge, Firefox, Safari) o a través de **GitHub Pages**.

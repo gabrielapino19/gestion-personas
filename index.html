@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Centro de Estudio interactivo: Contratos Individuales de Trabajo, Capítulos del Código del Trabajo, Feriado Anual, Permisos Legales y Licencias Médicas en Chile (Act 2.2).">
+    <meta name="description" content="Centro de Estudio interactivo: Contratos Individuales de Trabajo, Capítulos del Código del Trabajo, Feriado Anual, Permisos Legales, Licencias Médicas y Cuestionario de 15 Preguntas (Act 2.2).">
     <title>Centro de Estudio: Contratos de Trabajo y Derechos Laborales</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -114,7 +114,7 @@
         }
 
         .nav-inner {
-            max-width: 1020px;
+            max-width: 1040px;
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -188,7 +188,7 @@
 
         /* Container */
         .container {
-            max-width: 1020px;
+            max-width: 1040px;
             margin: 0 auto;
             padding: 30px 20px;
         }
@@ -213,7 +213,7 @@
             top: -50px;
             left: 50%;
             transform: translateX(-50%);
-            width: 360px;
+            width: 380px;
             height: 130px;
             background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
             pointer-events: none;
@@ -265,7 +265,7 @@
             font-size: 1.1rem;
             color: var(--text-muted);
             margin: 0 auto;
-            max-width: 680px;
+            max-width: 700px;
         }
 
         /* Grid & Cards */
@@ -378,7 +378,7 @@
             color: var(--accent-purple);
         }
 
-        /* TABLA DE CAPÍTULOS / ESQUEMA TÉCNICO */
+        /* TABLA DE CAPÍTULOS */
         .table-responsive {
             width: 100%;
             overflow-x: auto;
@@ -438,7 +438,7 @@
             gap: 8px;
         }
 
-        /* Tarjetas de capítulos para visualización dinámica */
+        /* Tarjetas de capítulos */
         .capitulos-cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -650,40 +650,112 @@
             color: var(--success);
         }
 
-        /* Quiz Styles (Section 4) */
+        /* QUIZ STYLES (15 PREGUNTAS) */
         .quiz-container {
             margin-top: 15px;
         }
 
         .quiz-score-banner {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-direction: column;
+            gap: 14px;
             background: var(--badge-bg);
-            padding: 14px 20px;
+            padding: 20px;
             border-radius: var(--radius-md);
             margin-bottom: 25px;
             border: 1px solid rgba(79, 70, 229, 0.2);
+        }
+
+        .quiz-score-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             flex-wrap: wrap;
-            gap: 10px;
+            gap: 12px;
         }
 
         .score-info {
+            font-family: 'Outfit', sans-serif;
             font-weight: 700;
             color: var(--primary);
-            font-size: 0.95rem;
+            font-size: 1.15rem;
+        }
+
+        .quiz-progress-track {
+            width: 100%;
+            height: 10px;
+            background: rgba(0, 0, 0, 0.06);
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        body.dark-mode .quiz-progress-track {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .quiz-progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, #4f46e5, #10b981);
+            border-radius: 20px;
+            transition: width 0.3s ease;
+        }
+
+        /* Navegación rápida por números de pregunta */
+        .quiz-nav-dots {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 5px;
+        }
+
+        .dot-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--card-border);
+            background: var(--card-bg);
+            color: var(--text);
+            font-weight: 700;
+            font-size: 0.8rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+            text-decoration: none;
+        }
+
+        .dot-btn:hover {
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .dot-btn.dot-correct {
+            background: var(--success);
+            color: #ffffff;
+            border-color: var(--success);
+        }
+
+        .dot-btn.dot-incorrect {
+            background: var(--error);
+            color: #ffffff;
+            border-color: var(--error);
         }
 
         .btn-reset-quiz {
             background: var(--card-bg);
             border: 1px solid var(--card-border);
-            padding: 6px 14px;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 10px;
+            font-size: 0.9rem;
+            font-weight: 700;
             color: var(--text);
             cursor: pointer;
             transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .btn-reset-quiz:hover {
@@ -696,9 +768,24 @@
             background: var(--bg);
             border: 1px solid var(--card-border);
             border-radius: var(--radius-md);
-            padding: 22px;
-            margin-bottom: 20px;
-            transition: border-color 0.2s;
+            padding: 24px;
+            margin-bottom: 22px;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            scroll-margin-top: 80px;
+        }
+
+        .question-block:hover {
+            border-color: rgba(79, 70, 229, 0.4);
+        }
+
+        .question-tag {
+            display: inline-block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--primary);
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
         }
 
         .question-title {
@@ -706,10 +793,8 @@
             font-weight: 700;
             color: var(--text);
             margin-top: 0;
-            margin-bottom: 14px;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
+            margin-bottom: 16px;
+            line-height: 1.45;
         }
 
         .quiz-option {
@@ -765,6 +850,7 @@
             font-size: 0.92rem;
             display: none;
             animation: fadeIn 0.3s ease;
+            line-height: 1.5;
         }
 
         .feedback.correct {
@@ -815,7 +901,7 @@
 
         /* Print styles */
         @media print {
-            .top-nav, .btn-action, .btn-reset-quiz, #confetti-canvas, #progress-bar {
+            .top-nav, .btn-action, .btn-reset-quiz, #confetti-canvas, #progress-bar, .quiz-nav-dots, .quiz-progress-track {
                 display: none !important;
             }
             body {
@@ -861,7 +947,7 @@
             <a href="#sec-contrato" class="nav-link">1. Contrato</a>
             <a href="#sec-feriado" class="nav-link">2. Feriado</a>
             <a href="#sec-permisos" class="nav-link">3. Permisos y SIL</a>
-            <a href="#sec-quiz" class="nav-link">4. Quiz</a>
+            <a href="#sec-quiz" class="nav-link">4. Quiz (15 Preguntas)</a>
         </div>
         <div class="nav-actions">
             <button class="btn-action" id="theme-toggle" onclick="toggleTheme()" title="Cambiar tema claro/oscuro">
@@ -881,12 +967,12 @@
             <span class="dot"></span> Preparación Evaluación Act 2.2 • Código del Trabajo
         </div>
         <h1>Guía de Estudio: Contratos y Derechos Laborales</h1>
-        <p class="subtitle">Estructura legal de los capítulos del Código del Trabajo, elementos esenciales del contrato y cuestionario de autoevaluación interactivo.</p>
+        <p class="subtitle">Estructura legal de los capítulos del Código del Trabajo, elementos esenciales del contrato y cuestionario de autoevaluación interactivo con 15 preguntas de examen.</p>
     </header>
 
     <main class="grid">
 
-        <!-- NUEVA SECCIÓN: CAPÍTULOS DEL CÓDIGO DEL TRABAJO -->
+        <!-- SECCIÓN: CAPÍTULOS DEL CÓDIGO DEL TRABAJO -->
         <article class="card" id="sec-capitulos">
             <div class="card-header-flex">
                 <h2>
@@ -968,7 +1054,6 @@
 
             <!-- TARJETAS RESUMEN DE LOS 4 CAPÍTULOS -->
             <div class="capitulos-cards-grid">
-                <!-- Tarjeta Cap 1 -->
                 <div class="capitulo-card cap-1">
                     <div>
                         <div class="capitulo-card-header">
@@ -985,7 +1070,6 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta Cap 2 -->
                 <div class="capitulo-card cap-2">
                     <div>
                         <div class="capitulo-card-header">
@@ -1002,7 +1086,6 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta Cap 3 -->
                 <div class="capitulo-card cap-3">
                     <div>
                         <div class="capitulo-card-header">
@@ -1019,7 +1102,6 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta Cap 4 -->
                 <div class="capitulo-card cap-4">
                     <div>
                         <div class="capitulo-card-header">
@@ -1175,89 +1257,307 @@
             </div>
         </article>
 
-        <!-- SECCIÓN 4: QUIZ DE REPASO -->
+        <!-- SECCIÓN 4: QUIZ DE REPASO (15 PREGUNTAS) -->
         <article class="card" id="sec-quiz">
             <div class="card-header-flex">
                 <h2>
-                    <span class="card-icon">🎯</span> 4. Quiz de Autoevaluación Integral
+                    <span class="card-icon">🎯</span> 4. Cuestionario de Autoevaluación (15 Preguntas)
                 </h2>
-                <span class="badge">Comprueba tus conocimientos</span>
+                <span class="badge">Simulación de Evaluación Act 2.2</span>
             </div>
 
             <div class="quiz-container">
+                <!-- PANEL DE PUNTAJE Y PROGRESO -->
                 <div class="quiz-score-banner">
-                    <div class="score-info" id="quiz-score-display">
-                        Puntaje: <span id="correct-count">0</span> de 4 preguntas correctas (<span id="percent-display">0%</span>)
+                    <div class="quiz-score-top">
+                        <div class="score-info" id="quiz-score-display">
+                            Puntaje: <span id="correct-count">0</span> de 15 correctas (<span id="percent-display">0%</span>) • Respondidas: <span id="answered-count">0</span>/15
+                        </div>
+                        <button class="btn-reset-quiz" onclick="resetQuiz()">🔄 Reiniciar Cuestionario</button>
                     </div>
-                    <button class="btn-reset-quiz" onclick="resetQuiz()">🔄 Reiniciar Quiz</button>
+
+                    <div class="quiz-progress-track">
+                        <div class="quiz-progress-fill" id="quiz-progress-bar"></div>
+                    </div>
+
+                    <div style="font-size: 0.85rem; font-weight: 600; color: var(--text-muted); margin-top: 4px;">
+                        Navegación rápida de preguntas:
+                    </div>
+                    <div class="quiz-nav-dots" id="quiz-nav-dots">
+                        <!-- Botones 1 al 15 generados dinámicamente -->
+                    </div>
                 </div>
+
+                <!-- LISTADO DE LAS 15 PREGUNTAS -->
 
                 <!-- PREGUNTA 1 -->
                 <div class="question-block" id="q-block-1">
+                    <span class="question-tag">Capítulo I • Definición Legal</span>
                     <p class="question-title">
-                        <span>1.</span> ¿Cuántos días hábiles de feriado anual corresponden por ley al cumplir 1 año de trabajo continuo?
+                        <strong>1.</strong> ¿Cuál es el elemento jurídico indispensable y distintivo que define al contrato de trabajo frente a un contrato de honorarios o civil?
                     </p>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb1', 1)">
-                        <span>A) 10 días corridos.</span>
+                        <span>A) La emisión mensual de boletas de honorarios.</span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, true, 'fb1', 1)">
-                        <span>B) 15 días hábiles (sábados inhábiles).</span>
+                        <span>B) El vínculo de subordinación y dependencia bajo el cual se prestan los servicios a cambio de una remuneración.</span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb1', 1)">
-                        <span>C) 20 días hábiles.</span>
+                        <span>C) Que el trabajador determine libremente sus propios métodos y horarios de trabajo.</span>
                     </div>
                     <div id="fb1" class="feedback"></div>
                 </div>
 
                 <!-- PREGUNTA 2 -->
                 <div class="question-block" id="q-block-2">
+                    <span class="question-tag">Capítulo I • Escrituración</span>
                     <p class="question-title">
-                        <span>2.</span> ¿Qué normativa regula el correcto otorgamiento y sanciona el uso malicioso de licencias médicas?
+                        <strong>2.</strong> Por regla general, ¿cuál es el plazo legal que tiene el empleador para escriturar y firmar el contrato de trabajo desde la incorporación del trabajador?
                     </p>
                     <div class="quiz-option" onclick="checkAnswer(this, true, 'fb2', 2)">
-                        <span>A) Ley N° 20.585.</span>
+                        <span>A) 15 días corridos contados desde la incorporación (o 5 días en contratos por obra o menores a 30 días).</span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb2', 2)">
-                        <span>B) Ley N° 16.744.</span>
+                        <span>B) 30 días hábiles bancarios.</span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb2', 2)">
-                        <span>C) Ley Sanna.</span>
+                        <span>C) 60 días corridos contados desde el primer pago de remuneraciones.</span>
                     </div>
                     <div id="fb2" class="feedback"></div>
                 </div>
 
-                <!-- PREGUNTA 3 (NUEVA: CAPÍTULO III) -->
+                <!-- PREGUNTA 3 -->
                 <div class="question-block" id="q-block-3">
+                    <span class="question-tag">Cláusulas Mínimas • Art. 10</span>
                     <p class="question-title">
-                        <span>3.</span> Según el Capítulo III del Código del Trabajo, ¿qué porcentaje mínimo de trabajadores chilenos debe tener una empresa de más de 25 trabajadores?
+                        <strong>3.</strong> ¿Cuál de los siguientes antecedentes NO es una cláusula mínima obligatoria establecida en el artículo 10 del Código del Trabajo?
                     </p>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb3', 3)">
-                        <span>A) Al menos el 50% de trabajadores chilenos.</span>
+                        <span>A) Monto, forma y período de pago de la remuneración acordada.</span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, true, 'fb3', 3)">
-                        <span>B) Al menos el 85% de trabajadores chilenos.</span>
+                        <span>B) Afiliación política, creencia religiosa o estado de salud no profesional del trabajador.</span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb3', 3)">
-                        <span>C) La ley no fija ninguna proporción de nacionalidad.</span>
+                        <span>C) Determinación de la naturaleza de los servicios y del lugar o ciudad en que hayan de prestarse.</span>
                     </div>
                     <div id="fb3" class="feedback"></div>
                 </div>
 
-                <!-- PREGUNTA 4 (NUEVA: CAPÍTULO II) -->
+                <!-- PREGUNTA 4 -->
                 <div class="question-block" id="q-block-4">
+                    <span class="question-tag">Capítulo II • Protección de Menores</span>
                     <p class="question-title">
-                        <span>4.</span> Respecto a la capacidad de contratar y protección de menores (Capítulo II), ¿cuál de las siguientes afirmaciones es correcta?
+                        <strong>4.</strong> Respecto a los adolescentes con edad para trabajar (15 a 17 años), ¿qué requisito y restricción exige la legislación laboral chilena?
                     </p>
                     <div class="quiz-option" onclick="checkAnswer(this, true, 'fb4', 4)">
-                        <span>A) Se prohíbe el trabajo nocturno y las faenas peligrosas a menores de 18 años, requiriendo autorización para adolescentes.</span>
+                        <span>A) Requieren autorización expresa de padres/tutores, acreditar estudios escolares y tienen prohibición absoluta de faenas peligrosas y nocturnas.</span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb4', 4)">
-                        <span>B) Un menor de 15 años puede trabajar libremente jornada completa sin autorización.</span>
+                        <span>B) Pueden realizar faenas peligrosas si reciben un bono económico de riesgo del 50%.</span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb4', 4)">
-                        <span>C) Los adolescentes pueden realizar faenas peligrosas si reciben doble remuneración.</span>
+                        <span>C) Pueden trabajar sin autorización si acreditan vivir de forma independiente.</span>
                     </div>
                     <div id="fb4" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 5 -->
+                <div class="question-block" id="q-block-5">
+                    <span class="question-tag">Capítulo III • Nacionalidad de los Trabajadores</span>
+                    <p class="question-title">
+                        <strong>5.</strong> En una empresa que cuenta con más de 25 trabajadores en Chile, ¿cuál es el porcentaje mínimo legal de personal que debe ser de nacionalidad chilena?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb5', 5)">
+                        <span>A) Al menos el 50% de los trabajadores.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb5', 5)">
+                        <span>B) Al menos el 85% de los trabajadores (Art. 19).</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb5', 5)">
+                        <span>C) La ley no exige cuotas de nacionalidad para empresas privadas.</span>
+                    </div>
+                    <div id="fb5" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 6 -->
+                <div class="question-block" id="q-block-6">
+                    <span class="question-tag">Capítulo IV • Jornada Extraordinaria</span>
+                    <p class="question-title">
+                        <strong>6.</strong> ¿Cómo se regulan y remuneran las horas extraordinarias en la legislación laboral chilena?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb6', 6)">
+                        <span>A) Pueden pactarse sin límite diario y se pagan con un recargo del 20%.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb6', 6)">
+                        <span>B) Tienen un límite legal de 2 horas diarias y deben pagarse con un recargo mínimo del 50% sobre el sueldo convenido.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb6', 6)">
+                        <span>C) No tienen recargo obligatorio y se compensan exclusivamente con días de descanso.</span>
+                    </div>
+                    <div id="fb6" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 7 -->
+                <div class="question-block" id="q-block-7">
+                    <span class="question-tag">Capítulo IV • Exclusión de Jornada</span>
+                    <p class="question-title">
+                        <strong>7.</strong> ¿A quiénes aplica principalmente la exclusión de la limitación de jornada ordinaria contemplada en el artículo 22 inciso 2° del Código del Trabajo?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb7', 7)">
+                        <span>A) A todos los trabajadores con contrato indefinido de más de un año.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb7', 7)">
+                        <span>B) A trabajadores que presten servicios sin fiscalización superior inmediata, gerentes o administradores con facultades de administración.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb7', 7)">
+                        <span>C) A todo trabajador que desempeñe labores en horario nocturno.</span>
+                    </div>
+                    <div id="fb7" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 8 -->
+                <div class="question-block" id="q-block-8">
+                    <span class="question-tag">Feriado Anual • Requisitos</span>
+                    <p class="question-title">
+                        <strong>8.</strong> ¿Cuántos días hábiles de feriado anual corresponden por ley al cumplir más de 1 año de trabajo continuo en la empresa?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb8', 8)">
+                        <span>A) 10 días corridos con medio sueldo.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb8', 8)">
+                        <span>B) 15 días hábiles con goce entero de remuneraciones.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb8', 8)">
+                        <span>C) 20 días hábiles no remunerados.</span>
+                    </div>
+                    <div id="fb8" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 9 -->
+                <div class="question-block" id="q-block-9">
+                    <span class="question-tag">Feriado Anual • Cómputo de Sábados</span>
+                    <p class="question-title">
+                        <strong>9.</strong> Para el cómputo y cálculo de los días de feriado anual (vacaciones), ¿cómo se consideran los días sábados según el artículo 67 del Código del Trabajo?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb9', 9)">
+                        <span>A) Se consideran siempre días inhábiles para el conteo del feriado legal.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb9', 9)">
+                        <span>B) Se consideran días hábiles si la empresa tiene pactada jornada de lunes a sábado.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb9', 9)">
+                        <span>C) Se computan como medio día hábil.</span>
+                    </div>
+                    <div id="fb9" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 10 -->
+                <div class="question-block" id="q-block-10">
+                    <span class="question-tag">Feriado Anual • Gestión Operativa</span>
+                    <p class="question-title">
+                        <strong>10.</strong> Desde el punto de vista de la gestión de personas y administración de la empresa, ¿cuál es el principal efecto operativo del feriado anual?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb10', 10)">
+                        <span>A) Suspende las remuneraciones del trabajador durante su ausencia.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb10', 10)">
+                        <span>B) Exige planificación anticipada de turnos y coberturas para no alterar la productividad ni sobrecargar al resto del personal.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb10', 10)">
+                        <span>C) Obliga al trabajador a responder urgencias de la empresa desde su lugar de descanso.</span>
+                    </div>
+                    <div id="fb10" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 11 -->
+                <div class="question-block" id="q-block-11">
+                    <span class="question-tag">Permisos Legales • Nacimiento y Adopción</span>
+                    <p class="question-title">
+                        <strong>11.</strong> ¿A cuántos días de permiso pagado tiene derecho el padre trabajador ante el nacimiento o adopción de un hijo?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb11', 11)">
+                        <span>A) 1 día libre no remunerado.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb11', 11)">
+                        <span>B) 5 días pagados, utilizables de forma continua o fraccionada en el primer mes de vida.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb11', 11)">
+                        <span>C) 15 días hábiles con cargo a sus vacaciones anuales.</span>
+                    </div>
+                    <div id="fb11" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 12 -->
+                <div class="question-block" id="q-block-12">
+                    <span class="question-tag">Permisos Legales • Matrimonio / Unión Civil</span>
+                    <p class="question-title">
+                        <strong>12.</strong> Cuando un trabajador contrae matrimonio o celebra un Acuerdo de Unión Civil (AUC), ¿a qué permiso legal tiene derecho por ley?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb12', 12)">
+                        <span>A) 5 días continuos pagados, adicionales al feriado anual y que no pueden compensarse en dinero.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb12', 12)">
+                        <span>B) 2 días hábiles descontables de su sueldo mensual.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb12', 12)">
+                        <span>C) 10 días corridos únicamente si cuenta con más de 2 años en la empresa.</span>
+                    </div>
+                    <div id="fb12" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 13 -->
+                <div class="question-block" id="q-block-13">
+                    <span class="question-tag">Permisos Legales • Duelo Familiar</span>
+                    <p class="question-title">
+                        <strong>13.</strong> Ante el fallecimiento de un hijo o del cónyuge/conviviente civil del trabajador, ¿cuál es el permiso remunerado establecido por el Código del Trabajo?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb13', 13)">
+                        <span>A) 7 días corridos pagados (más fuero laboral de un mes).</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb13', 13)">
+                        <span>B) 3 días hábiles sin goce de remuneraciones.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb13', 13)">
+                        <span>C) 1 día libre sujeto a autorización discrecional del empleador.</span>
+                    </div>
+                    <div id="fb13" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 14 -->
+                <div class="question-block" id="q-block-14">
+                    <span class="question-tag">Permisos Legales • Exámenes Preventivos</span>
+                    <p class="question-title">
+                        <strong>14.</strong> Para contratos superiores a 30 días, ¿qué permiso médico preventivo contempla la legislación laboral chilena?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb14', 14)">
+                        <span>A) Una semana libre pagada cada semestre.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb14', 14)">
+                        <span>B) Medio día de permiso remunerado una vez al año para mamografía, papanicolau o examen de próstata.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb14', 14)">
+                        <span>C) 2 horas libres al mes para cualquier chequeo dental o estético.</span>
+                    </div>
+                    <div id="fb14" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 15 -->
+                <div class="question-block" id="q-block-15">
+                    <span class="question-tag">Licencias Médicas • Ley N° 20.585 y SIL</span>
+                    <p class="question-title">
+                        <strong>15.</strong> ¿Qué normativa regula el correcto otorgamiento de licencias médicas y sanciona drásticamente su otorgamiento fraudulento o uso malicioso en Chile?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb15', 15)">
+                        <span>A) Ley N° 20.585 (establece sanciones administrativas, civiles y penales frente a licencias falsas).</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb15', 15)">
+                        <span>B) Ley N° 16.744 (Ley de Accidentes del Trabajo).</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb15', 15)">
+                        <span>C) Ley Sanna (Ley N° 21.063).</span>
+                    </div>
+                    <div id="fb15" class="feedback"></div>
                 </div>
             </div>
         </article>
@@ -1265,27 +1565,42 @@
 
     <footer>
         <p>Centro de Estudio: Contratos y Derechos Laborales • Código del Trabajo Chileno (Act 2.2)</p>
-        <p style="font-size: 0.8rem; opacity: 0.8;">Diseñado para repaso autónomo, preparación de evaluaciones y consulta rápida.</p>
+        <p style="font-size: 0.8rem; opacity: 0.8;">Cuestionario interactivo de 15 preguntas con retroalimentación inmediata, explicaciones técnicas y simulación de examen.</p>
     </footer>
 </div>
 
 <script>
-    // ESTADO DEL QUIZ
-    const quizState = {
-        1: { answered: false, correct: false },
-        2: { answered: false, correct: false },
-        3: { answered: false, correct: false },
-        4: { answered: false, correct: false }
-    };
+    // ESTADO DEL QUIZ (15 PREGUNTAS)
+    const TOTAL_QUESTIONS = 15;
+    const quizState = {};
+    for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+        quizState[i] = { answered: false, correct: false };
+    }
 
-    const TOTAL_QUESTIONS = Object.keys(quizState).length;
+    // Inicializar botones de navegación rápida de preguntas
+    function initNavDots() {
+        const dotsContainer = document.getElementById('quiz-nav-dots');
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+            const a = document.createElement('a');
+            a.className = 'dot-btn';
+            a.id = 'dot-btn-' + i;
+            a.href = '#q-block-' + i;
+            a.textContent = i;
+            a.title = 'Ir a Pregunta ' + i;
+            dotsContainer.appendChild(a);
+        }
+    }
+    initNavDots();
 
     function checkAnswer(element, isCorrect, feedbackId, qNumber) {
         const parent = element.parentElement;
         const options = parent.querySelectorAll('.quiz-option');
         const feedback = document.getElementById(feedbackId);
+        const dotBtn = document.getElementById('dot-btn-' + qNumber);
 
-        // Limpiar selección previa de este bloque
+        // Limpiar estilos previos en este bloque
         options.forEach(opt => {
             opt.classList.remove('correct', 'incorrect');
         });
@@ -1294,41 +1609,58 @@
             element.classList.add('correct');
             feedback.className = 'feedback correct';
             
-            switch(qNumber) {
-                case 1:
-                    feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> La ley otorga 15 días hábiles con remuneración íntegra, y los días sábados son legalmente inhábiles.';
-                    break;
-                case 2:
-                    feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> La Ley N° 20.585 fiscaliza y sanciona administrativa y penalmente la emisión y uso malicioso de licencias médicas.';
-                    break;
-                case 3:
-                    feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> El Art. 19 del Capítulo III establece que al menos el 85% de los trabajadores de una empresa con más de 25 dependientes deben ser chilenos.';
-                    break;
-                case 4:
-                    feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> El Capítulo II protege expresamente a niños, niñas y adolescentes, exigiendo autorización, acreditación escolar y prohibiendo faenas peligrosas o nocturnas.';
-                    break;
-            }
+            // Explicaciones pedagógicas detalladas
+            const correctMessages = {
+                1: '🎉 <strong>¡Correcto!</strong> El Art. 7 del Código del Trabajo define el contrato de trabajo precisamente por la prestación de servicios bajo <strong>dependencia y subordinación</strong> a cambio de una remuneración determinada.',
+                2: '🎉 <strong>¡Correcto!</strong> El empleador dispone de <strong>15 días corridos</strong> desde la incorporación del trabajador (o 5 días en contratos por obra o menores a 30 días). Si no se escritura, la ley presume legalmente que son verdaderas las estipulaciones que declare el trabajador.',
+                3: '🎉 <strong>¡Correcto!</strong> La afiliación política o religiosa es información privada y su exigencia o consideración constituye discriminación laboral prohibida por la ley.',
+                4: '🎉 <strong>¡Correcto!</strong> El Capítulo II protege expresamente a niños, niñas y adolescentes: exige autorización de padres/tutores, certificado de escolaridad al día y prohíbe taxativamente faenas peligrosas y nocturnas.',
+                5: '🎉 <strong>¡Correcto!</strong> El artículo 19 del Capítulo III exige que en empresas con más de 25 trabajadores, al menos el <strong>85%</strong> de la dotación sea de nacionalidad chilena.',
+                6: '🎉 <strong>¡Correcto!</strong> Las horas extraordinarias tienen un tope legal de 2 horas por día, deben ser transitorias y pagarse con al menos un <strong>50% de recargo</strong> sobre el valor de la hora ordinaria.',
+                7: '🎉 <strong>¡Correcto!</strong> El Art. 22 inciso 2° exime de la limitación de jornada ordinaria a quienes presten servicios sin fiscalización superior inmediata o detenten facultades generales de administración.',
+                8: '🎉 <strong>¡Correcto!</strong> La ley otorga <strong>15 días hábiles</strong> con goce íntegro de remuneraciones tras cumplir más de un año de servicio continuo para el mismo empleador.',
+                9: '🎉 <strong>¡Correcto!</strong> El artículo 67 es categórico: para los efectos del feriado legal, <strong>los días sábados se computan siempre como inhábiles</strong>.',
+                10: '🎉 <strong>¡Correcto!</strong> La gestión de personas debe planificar turnos, coberturas y contingencias con antelación para que el descanso legal del trabajador no afecte la productividad de la empresa.',
+                11: '🎉 <strong>¡Correcto!</strong> El padre trabajador tiene derecho legal a <strong>5 días pagados</strong> por nacimiento o adopción, utilizables de forma continua o distribuida en el primer mes de vida.',
+                12: '🎉 <strong>¡Correcto!</strong> Todo trabajador que contraiga matrimonio o celebre Acuerdo de Unión Civil (AUC) tiene derecho legal a <strong>5 días continuos pagados</strong>, que no se compensan en dinero.',
+                13: '🎉 <strong>¡Correcto!</strong> La ley concede <strong>7 días corridos pagados</strong> y fuero laboral de un mes por fallecimiento de hijo o cónyuge/conviviente civil (y 3 días hábiles por padres o hijo en gestación).',
+                14: '🎉 <strong>¡Correcto!</strong> La legislación concede <strong>medio día de permiso remunerado</strong> al año a mujeres mayores de 40 años (PAP/mamografía) y hombres mayores de 50 años (examen de próstata).',
+                15: '🎉 <strong>¡Correcto!</strong> La <strong>Ley N° 20.585</strong> fiscaliza y sanciona severamente la emisión y el uso fraudulento o malicioso de licencias médicas, protegiendo los fondos públicos y el SIL.'
+            };
+            
+            feedback.innerHTML = correctMessages[qNumber] || '🎉 <strong>¡Correcto!</strong> Excelente respuesta.';
             quizState[qNumber] = { answered: true, correct: true };
+            if (dotBtn) {
+                dotBtn.className = 'dot-btn dot-correct';
+            }
             playChime(true);
         } else {
             element.classList.add('incorrect');
             feedback.className = 'feedback incorrect';
             
-            switch(qNumber) {
-                case 1:
-                    feedback.innerHTML = '❌ <strong>Incorrecto.</strong> El feriado legal no se calcula en días corridos, sino en 15 días hábiles (sábados inhábiles). Revisa la Sección 2.';
-                    break;
-                case 2:
-                    feedback.innerHTML = '❌ <strong>Incorrecto.</strong> La Ley N° 16.744 es sobre accidentes laborales y la Ley Sanna sobre acompañamiento médico de hijos. La correcta es la Ley N° 20.585.';
-                    break;
-                case 3:
-                    feedback.innerHTML = '❌ <strong>Incorrecto.</strong> La proporción legal fijada en el Art. 19 (Capítulo III) es de al menos el 85% de trabajadores de nacionalidad chilena.';
-                    break;
-                case 4:
-                    feedback.innerHTML = '❌ <strong>Incorrecto.</strong> Las faenas peligrosas y nocturnas están estrictamente prohibidas por ley para menores de 18 años bajo cualquier circunstancia.';
-                    break;
-            }
+            const incorrectMessages = {
+                1: '❌ <strong>Incorrecto.</strong> La emisión de boletas corresponde a honorarios civiles. El elemento definitorio del contrato de trabajo es la <strong>subordinación y dependencia</strong>.',
+                2: '❌ <strong>Incorrecto.</strong> El plazo legal es de <strong>15 días corridos</strong> desde la incorporación (o 5 días en contratos por obra o menores a 30 días).',
+                3: '❌ <strong>Incorrecto.</strong> Las cláusulas mínimas son lugar/fecha, individualización, naturaleza de servicios, remuneración, jornada y plazo. La ideología o religión jamás pueden formar parte del contrato.',
+                4: '❌ <strong>Incorrecto.</strong> Los menores de 18 años jamás pueden realizar faenas peligrosas ni nocturnas bajo ninguna circunstancia o bono.',
+                5: '❌ <strong>Incorrecto.</strong> La proporción legal exigida por el Art. 19 del Código del Trabajo es de al menos el <strong>85%</strong> de trabajadores chilenos.',
+                6: '❌ <strong>Incorrecto.</strong> El recargo mínimo legal es del <strong>50%</strong> y el límite diario es de máximo 2 horas extraordinarias.',
+                7: '❌ <strong>Incorrecto.</strong> El Art. 22 inc. 2 no aplica a contratos indefinidos generales, sino a cargos <strong>sin fiscalización superior inmediata</strong> o con facultades de administración.',
+                8: '❌ <strong>Incorrecto.</strong> La duración legal es de <strong>15 días hábiles</strong> con goce íntegro de sueldo tras 1 año de servicio.',
+                9: '❌ <strong>Incorrecto.</strong> Por disposición expresa del artículo 67, los sábados se computan <strong>siempre como días inhábiles</strong> para el feriado.',
+                10: '❌ <strong>Incorrecto.</strong> El feriado es un derecho irrenunciable que exige que la empresa organice turnos y coberturas para no mermar la productividad.',
+                11: '❌ <strong>Incorrecto.</strong> El permiso pagado por nacimiento es de <strong>5 días</strong> con goce entero de remuneraciones para el padre.',
+                12: '❌ <strong>Incorrecto.</strong> El permiso legal por matrimonio o AUC es de <strong>5 días continuos pagados</strong> y no puede descontarse de las vacaciones.',
+                13: '❌ <strong>Incorrecto.</strong> Por muerte de hijo o cónyuge corresponden <strong>7 días corridos pagados</strong> más un mes de fuero laboral.',
+                14: '❌ <strong>Incorrecto.</strong> Corresponde <strong>medio día libre remunerado</strong> al año para exámenes preventivos oncológicos.',
+                15: '❌ <strong>Incorrecto.</strong> La Ley N° 16.744 es sobre accidentes y Ley Sanna sobre acompañamiento de niños. La fiscalizadora de licencias médicas es la <strong>Ley N° 20.585</strong>.'
+            };
+
+            feedback.innerHTML = incorrectMessages[qNumber] || '❌ <strong>Incorrecto.</strong> Revisa el contenido de las secciones superiores.';
             quizState[qNumber] = { answered: true, correct: false };
+            if (dotBtn) {
+                dotBtn.className = 'dot-btn dot-incorrect';
+            }
             playChime(false);
         }
 
@@ -1338,26 +1670,33 @@
 
     function updateScoreDisplay() {
         let correctCount = 0;
-        let totalAnswered = 0;
+        let answeredCount = 0;
 
         for (let q in quizState) {
-            if (quizState[q].answered) totalAnswered++;
+            if (quizState[q].answered) answeredCount++;
             if (quizState[q].correct) correctCount++;
         }
 
         document.getElementById('correct-count').textContent = correctCount;
+        document.getElementById('answered-count').textContent = answeredCount;
         const percent = Math.round((correctCount / TOTAL_QUESTIONS) * 100);
         document.getElementById('percent-display').textContent = percent + '%';
 
-        // Celebrar si completa todas correctas
+        // Actualizar barra de progreso del quiz
+        const progressPercent = Math.round((answeredCount / TOTAL_QUESTIONS) * 100);
+        document.getElementById('quiz-progress-bar').style.width = progressPercent + '%';
+
+        // Celebrar si completa todas con 100% o alto puntaje al terminar
         if (correctCount === TOTAL_QUESTIONS) {
             triggerConfetti();
         }
     }
 
     function resetQuiz() {
-        for (let q in quizState) {
-            quizState[q] = { answered: false, correct: false };
+        for (let i = 1; i <= TOTAL_QUESTIONS; i++) {
+            quizState[i] = { answered: false, correct: false };
+            const dotBtn = document.getElementById('dot-btn-' + i);
+            if (dotBtn) dotBtn.className = 'dot-btn';
         }
 
         document.querySelectorAll('.quiz-option').forEach(opt => {
@@ -1412,15 +1751,15 @@
         const pieces = [];
         const colors = ['#4f46e5', '#10b981', '#f59e0b', '#06b6d4', '#ec4899', '#8b5cf6'];
 
-        for (let i = 0; i < 95; i++) {
+        for (let i = 0; i < 110; i++) {
             pieces.push({
                 x: window.innerWidth / 2,
                 y: window.innerHeight / 2,
                 w: Math.random() * 8 + 4,
                 h: Math.random() * 10 + 6,
                 color: colors[Math.floor(Math.random() * colors.length)],
-                vx: (Math.random() - 0.5) * 14,
-                vy: (Math.random() - 0.7) * 16,
+                vx: (Math.random() - 0.5) * 16,
+                vy: (Math.random() - 0.7) * 18,
                 rotation: Math.random() * 360,
                 rspeed: (Math.random() - 0.5) * 10,
                 opacity: 1
@@ -1452,7 +1791,7 @@
             });
 
             frame++;
-            if (active && frame < 120) {
+            if (active && frame < 130) {
                 requestAnimationFrame(animate);
             } else {
                 ctx.clearRect(0, 0, canvas.width, canvas.height);
