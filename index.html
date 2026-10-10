@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Centro de Estudio interactivo: Contratos Individuales de Trabajo, Feriado Anual, Permisos Legales y Licencias Médicas en Chile (Act 2.2).">
+    <meta name="description" content="Centro de Estudio interactivo: Contratos Individuales de Trabajo, Capítulos del Código del Trabajo, Feriado Anual, Permisos Legales y Licencias Médicas en Chile (Act 2.2).">
     <title>Centro de Estudio: Contratos de Trabajo y Derechos Laborales</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,14 +20,19 @@
             --text: #0f172a;
             --text-muted: #64748b;
             --accent: #e0e7ff;
+            --accent-purple: #8b5cf6;
             --success: #10b981;
             --success-bg: #d1fae5;
             --success-border: #34d399;
             --error: #ef4444;
             --error-bg: #fee2e2;
             --error-border: #f87171;
+            --warning: #f59e0b;
+            --warning-bg: #fef3c7;
             --badge-bg: #eef2ff;
             --badge-text: #4338ca;
+            --table-header: #f1f5f9;
+            --table-stripe: #f8fafc;
             --shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.06), 0 8px 10px -6px rgba(15, 23, 42, 0.04);
             --shadow-hover: 0 20px 30px -10px rgba(79, 70, 229, 0.15);
             --radius-lg: 18px;
@@ -46,14 +51,19 @@
             --text: #f1f5f9;
             --text-muted: #94a3b8;
             --accent: #1e293b;
+            --accent-purple: #a78bfa;
             --success: #10b981;
             --success-bg: #064e3b;
             --success-border: #059669;
             --error: #f87171;
             --error-bg: #7f1d1d;
             --error-border: #dc2626;
+            --warning: #fbbf24;
+            --warning-bg: #451a03;
             --badge-bg: #1e1e38;
             --badge-text: #a5b4fc;
+            --table-header: #1e293b;
+            --table-stripe: #111827;
             --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.4);
             --shadow-hover: 0 20px 30px -10px rgba(99, 102, 241, 0.3);
         }
@@ -91,7 +101,7 @@
             position: sticky;
             top: 0;
             z-index: 100;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.88);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--card-border);
@@ -100,11 +110,11 @@
         }
 
         body.dark-mode .top-nav {
-            background: rgba(19, 27, 46, 0.85);
+            background: rgba(19, 27, 46, 0.88);
         }
 
         .nav-inner {
-            max-width: 950px;
+            max-width: 1020px;
             margin: 0 auto;
             display: flex;
             align-items: center;
@@ -127,7 +137,7 @@
         .nav-links {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             flex-wrap: wrap;
         }
 
@@ -178,7 +188,7 @@
 
         /* Container */
         .container {
-            max-width: 950px;
+            max-width: 1020px;
             margin: 0 auto;
             padding: 30px 20px;
         }
@@ -203,8 +213,8 @@
             top: -50px;
             left: 50%;
             transform: translateX(-50%);
-            width: 320px;
-            height: 120px;
+            width: 360px;
+            height: 130px;
             background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
             pointer-events: none;
         }
@@ -243,7 +253,7 @@
 
         h1 {
             font-family: 'Outfit', sans-serif;
-            font-size: 2.3rem;
+            font-size: 2.35rem;
             font-weight: 800;
             line-height: 1.25;
             margin: 0 0 12px 0;
@@ -255,14 +265,14 @@
             font-size: 1.1rem;
             color: var(--text-muted);
             margin: 0 auto;
-            max-width: 650px;
+            max-width: 680px;
         }
 
         /* Grid & Cards */
         .grid {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 32px;
         }
 
         .card {
@@ -356,6 +366,142 @@
         .badge-success {
             background: var(--success-bg);
             color: var(--success);
+        }
+
+        .badge-warning {
+            background: var(--warning-bg);
+            color: var(--warning);
+        }
+
+        .badge-purple {
+            background: rgba(139, 92, 246, 0.15);
+            color: var(--accent-purple);
+        }
+
+        /* TABLA DE CAPÍTULOS / ESQUEMA TÉCNICO */
+        .table-responsive {
+            width: 100%;
+            overflow-x: auto;
+            border-radius: var(--radius-md);
+            border: 1px solid var(--card-border);
+            margin: 18px 0 25px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .capitulos-table {
+            width: 100%;
+            border-collapse: collapse;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .capitulos-table th {
+            background-color: var(--table-header);
+            color: var(--text);
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            padding: 14px 18px;
+            border-bottom: 2px solid var(--card-border);
+            white-space: nowrap;
+        }
+
+        .capitulos-table td {
+            padding: 16px 18px;
+            border-bottom: 1px solid var(--card-border);
+            vertical-align: top;
+            line-height: 1.55;
+        }
+
+        .capitulos-table tbody tr:nth-child(even) {
+            background-color: var(--table-stripe);
+        }
+
+        .capitulos-table tbody tr:hover {
+            background-color: rgba(79, 70, 229, 0.04);
+        }
+
+        body.dark-mode .capitulos-table tbody tr:hover {
+            background-color: rgba(99, 102, 241, 0.08);
+        }
+
+        .cap-col-badge {
+            font-weight: 700;
+            color: var(--primary);
+            white-space: nowrap;
+        }
+
+        .tema-col-title {
+            font-weight: 700;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Tarjetas de capítulos para visualización dinámica */
+        .capitulos-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+            margin-top: 15px;
+        }
+
+        .capitulo-card {
+            background: var(--bg);
+            border: 1px solid var(--card-border);
+            border-radius: var(--radius-md);
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.2s;
+            position: relative;
+            border-top: 4px solid var(--primary);
+        }
+
+        .capitulo-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--primary);
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.06);
+        }
+
+        .capitulo-card.cap-1 { border-top-color: #4f46e5; }
+        .capitulo-card.cap-2 { border-top-color: #ec4899; }
+        .capitulo-card.cap-3 { border-top-color: #06b6d4; }
+        .capitulo-card.cap-4 { border-top-color: #f59e0b; }
+
+        .capitulo-card-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .capitulo-card-title {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text);
+            margin: 0 0 8px 0;
+        }
+
+        .capitulo-card-desc {
+            font-size: 0.92rem;
+            color: var(--text-muted);
+            margin: 0 0 14px 0;
+            line-height: 1.5;
+        }
+
+        .capitulo-card-footer {
+            margin-top: auto;
+            padding-top: 10px;
+            border-top: 1px dashed var(--card-border);
+            font-size: 0.82rem;
+            color: var(--text);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Elements Grid (Section 1) */
@@ -611,10 +757,6 @@
             color: #fca5a5 !important;
         }
 
-        .quiz-option.disabled {
-            pointer-events: none;
-        }
-
         .feedback {
             margin-top: 14px;
             padding: 12px 16px;
@@ -693,11 +835,13 @@
         }
 
         /* Responsive */
-        @media (max-width: 640px) {
-            h1 { font-size: 1.8rem; }
-            .card { padding: 20px; }
+        @media (max-width: 768px) {
+            h1 { font-size: 1.85rem; }
+            .card { padding: 22px; }
             .nav-inner { justify-content: center; }
             .nav-links { display: none; }
+            .capitulos-table { font-size: 0.88rem; }
+            .capitulos-table th, .capitulos-table td { padding: 12px 10px; }
         }
     </style>
 </head>
@@ -713,8 +857,9 @@
             ⚖️ Centro de Estudio Laboral
         </a>
         <div class="nav-links">
+            <a href="#sec-capitulos" class="nav-link">Capítulos del Código</a>
             <a href="#sec-contrato" class="nav-link">1. Contrato</a>
-            <a href="#sec-feriado" class="nav-link">2. Feriado Anual</a>
+            <a href="#sec-feriado" class="nav-link">2. Feriado</a>
             <a href="#sec-permisos" class="nav-link">3. Permisos y SIL</a>
             <a href="#sec-quiz" class="nav-link">4. Quiz</a>
         </div>
@@ -736,11 +881,164 @@
             <span class="dot"></span> Preparación Evaluación Act 2.2 • Código del Trabajo
         </div>
         <h1>Guía de Estudio: Contratos y Derechos Laborales</h1>
-        <p class="subtitle">Resumen esquemático, elementos esenciales según la legislación chilena y cuestionario de autoevaluación interactivo.</p>
+        <p class="subtitle">Estructura legal de los capítulos del Código del Trabajo, elementos esenciales del contrato y cuestionario de autoevaluación interactivo.</p>
     </header>
 
     <main class="grid">
-        <!-- SECCIÓN 1 -->
+
+        <!-- NUEVA SECCIÓN: CAPÍTULOS DEL CÓDIGO DEL TRABAJO -->
+        <article class="card" id="sec-capitulos">
+            <div class="card-header-flex">
+                <h2>
+                    <span class="card-icon">📚</span> Marco Normativo: Capítulos del Libro I
+                </h2>
+                <span class="badge badge-purple">Título I • Contrato Individual</span>
+            </div>
+
+            <p>
+                El Código del Trabajo estructura el contrato individual y las relaciones laborales iniciales a través de capítulos especializados. A continuación se detalla cada capítulo, su temática y su explicación técnica / legal:
+            </p>
+
+            <!-- TABLA COMPARATIVA TÉCNICA -->
+            <div class="table-responsive">
+                <table class="capitulos-table">
+                    <thead>
+                        <tr>
+                            <th style="width: 18%;">Capítulo</th>
+                            <th style="width: 28%;">Tema</th>
+                            <th style="width: 54%;">Explicación Técnica / Legal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <span class="cap-col-badge">Capítulo I</span>
+                            </td>
+                            <td>
+                                <div class="tema-col-title">
+                                    <span>📑 Normas Generales</span>
+                                </div>
+                            </td>
+                            <td>
+                                Establece la definición formal del contrato individual de trabajo, explicitando la relación de dependencia y subordinación entre el trabajador y el empleador. Define además la obligación legal de escriturarlo dentro del plazo establecido por ley.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="cap-col-badge">Capítulo II</span>
+                            </td>
+                            <td>
+                                <div class="tema-col-title">
+                                    <span>🛡️ Capacidad de contratar y protección de menores</span>
+                                </div>
+                            </td>
+                            <td>
+                                Establece los requisitos legales para la firma de contratos y aplica marcos de protección específicos para el trabajo de niños, niñas y adolescentes (autorizaciones, límites horarios y prohibición de faenas peligrosas).
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="cap-col-badge">Capítulo III</span>
+                            </td>
+                            <td>
+                                <div class="tema-col-title">
+                                    <span>🇨🇱 Nacionalidad de los trabajadores</span>
+                                </div>
+                            </td>
+                            <td>
+                                Modula la proporción legal de trabajadores nacionales respecto a extranjeros que puede emplear una misma empresa dentro del territorio chileno.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span class="cap-col-badge">Capítulo IV</span>
+                            </td>
+                            <td>
+                                <div class="tema-col-title">
+                                    <span>⏰ Jornada de trabajo</span>
+                                </div>
+                            </td>
+                            <td>
+                                Define la duración máxima de la jornada ordinaria, los días de descanso, las excepciones según las funciones del cargo y la regulación sobre el pago y límite de horas extraordinarias.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- TARJETAS RESUMEN DE LOS 4 CAPÍTULOS -->
+            <div class="capitulos-cards-grid">
+                <!-- Tarjeta Cap 1 -->
+                <div class="capitulo-card cap-1">
+                    <div>
+                        <div class="capitulo-card-header">
+                            <span class="badge">Capítulo I</span>
+                            <span style="font-size: 1.2rem;">📑</span>
+                        </div>
+                        <h4 class="capitulo-card-title">Normas Generales</h4>
+                        <p class="capitulo-card-desc">
+                            Define el contrato de trabajo como convención bilateral basada en subordinación y dependencia, y exige su escrituración formal (plazos de 15 o 5 días).
+                        </p>
+                    </div>
+                    <div class="capitulo-card-footer">
+                        <span>⚖️ Arts. 7 al 12 Código del Trabajo</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Cap 2 -->
+                <div class="capitulo-card cap-2">
+                    <div>
+                        <div class="capitulo-card-header">
+                            <span class="badge" style="background: rgba(236,72,153,0.15); color:#ec4899;">Capítulo II</span>
+                            <span style="font-size: 1.2rem;">🛡️</span>
+                        </div>
+                        <h4 class="capitulo-card-title">Capacidad y Protección de Menores</h4>
+                        <p class="capitulo-card-desc">
+                            Regula la capacidad legal para contratar y establece salvaguardas para adolescentes (autorización de padres/tutores, tope de jornada y prohibición de labores nocivas).
+                        </p>
+                    </div>
+                    <div class="capitulo-card-footer">
+                        <span>⚖️ Arts. 13 al 18 bis</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Cap 3 -->
+                <div class="capitulo-card cap-3">
+                    <div>
+                        <div class="capitulo-card-header">
+                            <span class="badge" style="background: rgba(6,182,212,0.15); color:#0891b2;">Capítulo III</span>
+                            <span style="font-size: 1.2rem;">🇨🇱</span>
+                        </div>
+                        <h4 class="capitulo-card-title">Nacionalidad de los Trabajadores</h4>
+                        <p class="capitulo-card-desc">
+                            Establece que en empresas de más de 25 trabajadores, al menos el <strong>85%</strong> del personal debe ser de nacionalidad chilena, con exclusiones y excepciones específicas.
+                        </p>
+                    </div>
+                    <div class="capitulo-card-footer">
+                        <span>⚖️ Arts. 19 y 20 Código del Trabajo</span>
+                    </div>
+                </div>
+
+                <!-- Tarjeta Cap 4 -->
+                <div class="capitulo-card cap-4">
+                    <div>
+                        <div class="capitulo-card-header">
+                            <span class="badge badge-warning">Capítulo IV</span>
+                            <span style="font-size: 1.2rem;">⏰</span>
+                        </div>
+                        <h4 class="capitulo-card-title">Jornada de Trabajo</h4>
+                        <p class="capitulo-card-desc">
+                            Fija los límites de la jornada laboral ordinaria, descansos dominicales y festivos, cargos excluidos de control horario (Art. 22 inc. 2) y recargo del 50% en horas extraordinarias.
+                        </p>
+                    </div>
+                    <div class="capitulo-card-footer">
+                        <span>⚖️ Arts. 21 al 40 bis</span>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- SECCIÓN 1: EL CONTRATO INDIVIDUAL -->
         <article class="card" id="sec-contrato">
             <div class="card-header-flex">
                 <h2>
@@ -789,7 +1087,7 @@
             </div>
         </article>
 
-        <!-- SECCIÓN 2 -->
+        <!-- SECCIÓN 2: FERIADO ANUAL -->
         <article class="card" id="sec-feriado">
             <div class="card-header-flex">
                 <h2>
@@ -833,7 +1131,7 @@
             </ul>
         </article>
 
-        <!-- SECCIÓN 3 -->
+        <!-- SECCIÓN 3: PERMISOS LEGALES E INCAPACIDAD MÉDICA -->
         <article class="card" id="sec-permisos">
             <div class="card-header-flex">
                 <h2>
@@ -881,7 +1179,7 @@
         <article class="card" id="sec-quiz">
             <div class="card-header-flex">
                 <h2>
-                    <span class="card-icon">🎯</span> 4. Quiz de Autoevaluación Rápido
+                    <span class="card-icon">🎯</span> 4. Quiz de Autoevaluación Integral
                 </h2>
                 <span class="badge">Comprueba tus conocimientos</span>
             </div>
@@ -889,7 +1187,7 @@
             <div class="quiz-container">
                 <div class="quiz-score-banner">
                     <div class="score-info" id="quiz-score-display">
-                        Puntaje: <span id="correct-count">0</span> de 2 preguntas correctas (<span id="percent-display">0%</span>)
+                        Puntaje: <span id="correct-count">0</span> de 4 preguntas correctas (<span id="percent-display">0%</span>)
                     </div>
                     <button class="btn-reset-quiz" onclick="resetQuiz()">🔄 Reiniciar Quiz</button>
                 </div>
@@ -901,15 +1199,12 @@
                     </p>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb1', 1)">
                         <span>A) 10 días corridos.</span>
-                        <span class="opt-icon"></span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, true, 'fb1', 1)">
                         <span>B) 15 días hábiles (sábados inhábiles).</span>
-                        <span class="opt-icon"></span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb1', 1)">
                         <span>C) 20 días hábiles.</span>
-                        <span class="opt-icon"></span>
                     </div>
                     <div id="fb1" class="feedback"></div>
                 </div>
@@ -921,17 +1216,48 @@
                     </p>
                     <div class="quiz-option" onclick="checkAnswer(this, true, 'fb2', 2)">
                         <span>A) Ley N° 20.585.</span>
-                        <span class="opt-icon"></span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb2', 2)">
                         <span>B) Ley N° 16.744.</span>
-                        <span class="opt-icon"></span>
                     </div>
                     <div class="quiz-option" onclick="checkAnswer(this, false, 'fb2', 2)">
                         <span>C) Ley Sanna.</span>
-                        <span class="opt-icon"></span>
                     </div>
                     <div id="fb2" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 3 (NUEVA: CAPÍTULO III) -->
+                <div class="question-block" id="q-block-3">
+                    <p class="question-title">
+                        <span>3.</span> Según el Capítulo III del Código del Trabajo, ¿qué porcentaje mínimo de trabajadores chilenos debe tener una empresa de más de 25 trabajadores?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb3', 3)">
+                        <span>A) Al menos el 50% de trabajadores chilenos.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb3', 3)">
+                        <span>B) Al menos el 85% de trabajadores chilenos.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb3', 3)">
+                        <span>C) La ley no fija ninguna proporción de nacionalidad.</span>
+                    </div>
+                    <div id="fb3" class="feedback"></div>
+                </div>
+
+                <!-- PREGUNTA 4 (NUEVA: CAPÍTULO II) -->
+                <div class="question-block" id="q-block-4">
+                    <p class="question-title">
+                        <span>4.</span> Respecto a la capacidad de contratar y protección de menores (Capítulo II), ¿cuál de las siguientes afirmaciones es correcta?
+                    </p>
+                    <div class="quiz-option" onclick="checkAnswer(this, true, 'fb4', 4)">
+                        <span>A) Se prohíbe el trabajo nocturno y las faenas peligrosas a menores de 18 años, requiriendo autorización para adolescentes.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb4', 4)">
+                        <span>B) Un menor de 15 años puede trabajar libremente jornada completa sin autorización.</span>
+                    </div>
+                    <div class="quiz-option" onclick="checkAnswer(this, false, 'fb4', 4)">
+                        <span>C) Los adolescentes pueden realizar faenas peligrosas si reciben doble remuneración.</span>
+                    </div>
+                    <div id="fb4" class="feedback"></div>
                 </div>
             </div>
         </article>
@@ -947,15 +1273,19 @@
     // ESTADO DEL QUIZ
     const quizState = {
         1: { answered: false, correct: false },
-        2: { answered: false, correct: false }
+        2: { answered: false, correct: false },
+        3: { answered: false, correct: false },
+        4: { answered: false, correct: false }
     };
+
+    const TOTAL_QUESTIONS = Object.keys(quizState).length;
 
     function checkAnswer(element, isCorrect, feedbackId, qNumber) {
         const parent = element.parentElement;
         const options = parent.querySelectorAll('.quiz-option');
         const feedback = document.getElementById(feedbackId);
 
-        // Desactivar opciones para evitar doble respuesta simultánea
+        // Limpiar selección previa de este bloque
         options.forEach(opt => {
             opt.classList.remove('correct', 'incorrect');
         });
@@ -963,20 +1293,40 @@
         if (isCorrect) {
             element.classList.add('correct');
             feedback.className = 'feedback correct';
-            if (qNumber === 1) {
-                feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> La ley otorga 15 días hábiles con remuneración íntegra, y los días sábados son legalmente inhábiles.';
-            } else {
-                feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> La Ley N° 20.585 fiscaliza y sanciona administrativa y penalmente la emisión y uso malicioso de licencias.';
+            
+            switch(qNumber) {
+                case 1:
+                    feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> La ley otorga 15 días hábiles con remuneración íntegra, y los días sábados son legalmente inhábiles.';
+                    break;
+                case 2:
+                    feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> La Ley N° 20.585 fiscaliza y sanciona administrativa y penalmente la emisión y uso malicioso de licencias médicas.';
+                    break;
+                case 3:
+                    feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> El Art. 19 del Capítulo III establece que al menos el 85% de los trabajadores de una empresa con más de 25 dependientes deben ser chilenos.';
+                    break;
+                case 4:
+                    feedback.innerHTML = '🎉 <strong>¡Correcto!</strong> El Capítulo II protege expresamente a niños, niñas y adolescentes, exigiendo autorización, acreditación escolar y prohibiendo faenas peligrosas o nocturnas.';
+                    break;
             }
             quizState[qNumber] = { answered: true, correct: true };
             playChime(true);
         } else {
             element.classList.add('incorrect');
             feedback.className = 'feedback incorrect';
-            if (qNumber === 1) {
-                feedback.innerHTML = '❌ <strong>Incorrecto.</strong> El feriado legal no se calcula en días corridos, sino en 15 días hábiles (sábados inhábiles). Revisa la Sección 2.';
-            } else {
-                feedback.innerHTML = '❌ <strong>Incorrecto.</strong> La Ley N° 16.744 es de accidentes del trabajo y la Ley Sanna es de acompañamiento médico infantil. La correcta es la Ley N° 20.585.';
+            
+            switch(qNumber) {
+                case 1:
+                    feedback.innerHTML = '❌ <strong>Incorrecto.</strong> El feriado legal no se calcula en días corridos, sino en 15 días hábiles (sábados inhábiles). Revisa la Sección 2.';
+                    break;
+                case 2:
+                    feedback.innerHTML = '❌ <strong>Incorrecto.</strong> La Ley N° 16.744 es sobre accidentes laborales y la Ley Sanna sobre acompañamiento médico de hijos. La correcta es la Ley N° 20.585.';
+                    break;
+                case 3:
+                    feedback.innerHTML = '❌ <strong>Incorrecto.</strong> La proporción legal fijada en el Art. 19 (Capítulo III) es de al menos el 85% de trabajadores de nacionalidad chilena.';
+                    break;
+                case 4:
+                    feedback.innerHTML = '❌ <strong>Incorrecto.</strong> Las faenas peligrosas y nocturnas están estrictamente prohibidas por ley para menores de 18 años bajo cualquier circunstancia.';
+                    break;
             }
             quizState[qNumber] = { answered: true, correct: false };
             playChime(false);
@@ -996,18 +1346,19 @@
         }
 
         document.getElementById('correct-count').textContent = correctCount;
-        const percent = Math.round((correctCount / 2) * 100);
+        const percent = Math.round((correctCount / TOTAL_QUESTIONS) * 100);
         document.getElementById('percent-display').textContent = percent + '%';
 
-        // Celebrar si completa 2 de 2 correctas
-        if (correctCount === 2) {
+        // Celebrar si completa todas correctas
+        if (correctCount === TOTAL_QUESTIONS) {
             triggerConfetti();
         }
     }
 
     function resetQuiz() {
-        quizState[1] = { answered: false, correct: false };
-        quizState[2] = { answered: false, correct: false };
+        for (let q in quizState) {
+            quizState[q] = { answered: false, correct: false };
+        }
 
         document.querySelectorAll('.quiz-option').forEach(opt => {
             opt.classList.remove('correct', 'incorrect');
@@ -1031,8 +1382,8 @@
             gain.connect(ctx.destination);
 
             if (isSuccess) {
-                osc.frequency.setValueAtTime(587.33, ctx.currentTime); // D5
-                osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1); // A5
+                osc.frequency.setValueAtTime(587.33, ctx.currentTime);
+                osc.frequency.setValueAtTime(880, ctx.currentTime + 0.1);
                 gain.gain.setValueAtTime(0.08, ctx.currentTime);
                 gain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.35);
                 osc.start();
@@ -1059,9 +1410,9 @@
         canvas.height = window.innerHeight;
 
         const pieces = [];
-        const colors = ['#4f46e5', '#10b981', '#f59e0b', '#06b6d4', '#ec4899'];
+        const colors = ['#4f46e5', '#10b981', '#f59e0b', '#06b6d4', '#ec4899', '#8b5cf6'];
 
-        for (let i = 0; i < 90; i++) {
+        for (let i = 0; i < 95; i++) {
             pieces.push({
                 x: window.innerWidth / 2,
                 y: window.innerHeight / 2,
@@ -1084,7 +1435,7 @@
             pieces.forEach(p => {
                 p.x += p.vx;
                 p.y += p.vy;
-                p.vy += 0.35; // Gravedad
+                p.vy += 0.35;
                 p.rotation += p.rspeed;
                 p.opacity -= 0.012;
 
